@@ -130,7 +130,8 @@ class upr_shortcode
                             $message = '<div class="col-md-11 alert-success" style="color:#F00">Please enter correct captcha value.</div>';
                         }
                     }
-						if (empty($_REQUEST['prayer_author_name'])) {$message1 = '<div class="col-md-11 alert-success">'.__('This field is required','wp-prayers-request').': '.__('Name','wp-prayers-request').'</div>';}
+                        $num_found1= preg_match_all('/(((http|https|ftp|ftps)\:\/\/)|(www\.))[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3}(\:[0-9]+)?(\/\S*)?/', $_REQUEST['prayer_author_name'], $results, PREG_PATTERN_ORDER);
+						if (empty($_REQUEST['prayer_author_name']) || !empty($num_found1)|| strlen($_REQUEST['prayer_author_name'])>'20') {$message1 = '<div class="col-md-11 alert-success">'.__('This field is required','wp-prayers-request').': '.__('Name','wp-prayers-request').'</div>';}
 						$num_found= preg_match_all('/(((http|https|ftp|ftps)\:\/\/)|(www\.))[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3}(\:[0-9]+)?(\/\S*)?/', $_REQUEST['prayer_messages'], $results, PREG_PATTERN_ORDER);
 						if (empty($_REQUEST['prayer_messages']) || !empty($num_found) ) {$message2 = '<div class="col-md-11 alert-success">'.__('This field is required','wp-prayers-request').': '.__('Prayer Request','wp-prayers-request').'</div>';}
 	                    $message = $message1.$message2;

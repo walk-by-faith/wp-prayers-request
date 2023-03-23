@@ -3,14 +3,14 @@
 Plugin Name: WP Prayer II
 Plugin URI: https://www.goministry.com/
 Description: Prayer Management System
-Version: 2.4.0
+Version: 2.4.1
 Author: Go Prayer
 Author URI: https://www.goprayer.com/
 License: GPLv2 or later
 Text Domain: wp-prayers-request
 Domain Path: /languages
 Requires at least: 5.0
-Tested up to: 6.1
+Tested up to: 6.2
 */
 
 if ( ! defined( 'ABSPATH' ) )  die( 'Nope, not accessing this' ); 
