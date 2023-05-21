@@ -170,7 +170,7 @@
                 </tr> 
                 <tr>
                     <td scope="row"><label><?php _e( 'Share','wp-prayers-request' ); ?></label></td>
-                    <td><input name="upr_prayer_share" id="prayer_share" value="1" class="regular-text" type="checkbox" <?php if($upr_prayer_share==1) echo "checked"; ?>> <?php _e( 'No, keep prayer request private' ,'wp-prayers-request'); ?></td>
+                    <td><input name="upr_prayer_share" id="prayer_share" value="1" class="regular-text" type="checkbox" <?php if($upr_prayer_share==1) echo "checked"; ?>> <?php _e( 'Do not share this request' ,'wp-prayers-request'); ?></td>
                 </tr>				
                 <?php $upr_allow_comments_prayer_request = get_option('upr_allow_comments_prayer_request'); ?>
                 <tr>

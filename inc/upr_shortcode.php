@@ -141,10 +141,7 @@ class upr_shortcode
                         if ($upr_prayer_default_status_pending == 1) {
                             $post_status = 'pending';
                         }
-						if (isset($_REQUEST['prayer_public'])) {
-						$prayer_public1 = $_REQUEST['prayer_public'];						
-						if ($prayer_public1 == __('No, keep prayer request private', 'wp-prayers-request')) {$post_status = 'private';}
-						}
+						if (isset($_REQUEST['prayer_public'])) {$post_status = 'private';}
 						$upr_prayer_send_email = get_option('upr_prayer_send_email');
                         $prayer_post = array(
                             'post_title' => sanitize_text_field(implode(' ', array_slice(explode(' ', $_REQUEST['prayer_messages']), 0, 3))),
@@ -635,24 +632,13 @@ class upr_shortcode
                                     'wp-prayers-request') ?></p></div>
                     </div>
 					<?php if ($upr_prayer_share == 1): ?>
-					 <?php
-					$prayer_public = array(
-					"Yes_Public" => __('Yes, share prayer request','wp-prayers-request'),
-					"No_Public" => __('No, keep prayer request private','wp-prayers-request'),
-					);
-					?>
+
                     <div class="form-group ">
-                        <div class="col-md-3"><label for="prayer_public"><?php _e('Share',
-                                    'wp-prayers-request') ?></label></div>
-                        <div class="col-md-8">
-                            <select name="prayer_public" class="form-control">
-                                <?php
-                                foreach ($prayer_public as $key => $val0) {
-                                    echo '<option value="'.esc_html($val0).'">'.__($val0, 'wp-prayers-request').'</option>';
-                                }
-                                ?>
-                            </select>
-                        </div>
+                        
+                        <div class="col-md-8"><input name="prayer_public" id="prayer_public"
+                    class="form-control" type="checkbox" value="prayer_public"><?php _e(' ')._e('Do not share this request',
+                                    'wp-prayers-request') ?>
+             
                     </div>
 					<?php endif; ?>
                 <?php if ($upr_prayer_hide_captcha == 0): ?>
