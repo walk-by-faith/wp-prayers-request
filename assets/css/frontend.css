@@ -147,9 +147,9 @@
 .wpgmp-frontend .alert-success {
 	padding: 10px;
 	font-size: 14px;
-	background: #c1fbe9;
-	border: 1px solid #84d7bd;
-	color: #176a50;
+	
+	border: 1px solid gray;
+	
 	margin-bottom: 15px;
 }
 .wpgmp-frontend .close {

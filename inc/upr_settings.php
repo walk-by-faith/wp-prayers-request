@@ -75,6 +75,9 @@
                 $key1=$_POST['sitekey_gc'];
                 update_option('upr_prayer_sitekey', $key1);
             }
+            $upr_prayer_thankyou = isset($_POST['upr_prayer_thankyou']) ?  stripslashes_deep($_POST['upr_prayer_thankyou']) : '';
+            update_option('upr_prayer_thankyou', $upr_prayer_thankyou);        
+            
 			echo '<div id="setting-error-settings_updated" class="updated settings-error notice is-dismissible">
 			<p><strong>'.__('Updated','wp-prayers-request').'</strong></p></div>';
 		} 
@@ -99,6 +102,7 @@
 				$upr_ago = get_option('upr_ago');
                 $upr_prayer_secret=get_option('upr_prayer_secret');
                 $upr_prayer_sitekey=get_option('upr_prayer_sitekey');
+                $upr_prayer_thankyou = get_option('upr_prayer_thankyou');
 				?>
 				<tr>
                     <td scope="row"><label><?php _e( 'Shortcode for prayer request [upr_form] and for prayer listing [upr_list_prayers]' ,'wp-prayers-request'); ?></label></td>
@@ -191,7 +195,12 @@
                 <tr>
                     <td scope="row"><label><?php _e( 'Time interval between Pray/Prayed button' ,'wp-prayers-request'); ?></label></td>
                     <td><input name="upr_time_interval_pray_prayed_button" id="upr_time_interval_pray_prayed_button" value="<?php echo esc_html($upr_time_interval_pray_prayed_button) ?>"  type="text" size="10"> <?php _e( '(in seconds)' ,'wp-prayers-request'); ?></td>
-                </tr>          
+                </tr>   
+                                <?php $upr_prayer_thankyou = get_option('upr_prayer_thankyou'); ?>
+                         <tr>
+                    <td scope="row"><label><?php _e( 'Thank you message','wp-prayers-request'); ?></label></td>
+                    <td><textarea rows="5" cols="70" placeholder="Thank you. Your form has been received" name="upr_prayer_thankyou"><?php echo esc_html($upr_prayer_thankyou) ?></textarea></td>
+                </tr>
                 <?php $upr_fetch_req_from = get_option('upr_prayer_fetch_req_from'); ?>
                 <tr>
                     <td scope="row"><label><?php _e('Which Requests Would You like to Display?','wp-prayers-request')?></label></td>

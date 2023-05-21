@@ -4,7 +4,7 @@ Donate link: https://www.goministry.com/
 Tags: church, pray, prayer, Bible, ministry
 Requires at least: 5.0
 Tested up to: 6.2
-Stable tag: 2.4.2
+Stable tag: 2.4.3
 Requires PHP: 5.2.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -84,6 +84,9 @@ Some hosts may refuse to relay mail from an unknown domain. See https://trac.wor
 
 
 == Changelog ==
+
+= 2.4.3 =
+* Custom thank you message after prayer submission
 
 = 2.4.2 =
 * Checkbox on form - Do not share this request

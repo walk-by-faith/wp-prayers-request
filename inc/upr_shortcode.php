@@ -285,7 +285,10 @@ class upr_shortcode
                                     wp_mail($to_admin, $subject, $body, $headers);
                                 }
                             }
-                            $message = '<div class="col-md-11 alert-success">'.__('Thank you. Your form has been received','wp-prayers-request').'</div>';
+                            $upr_prayer_thankyou = get_option('upr_prayer_thankyou');
+                            if ( ! empty($upr_prayer_thankyou)) {
+                            $message = '<div class="col-md-11 alert-success">'.$upr_prayer_thankyou.'</div>';} else {
+                            $message = '<div class="col-md-11 alert-success">'.__('Thank you. Your form has been received','wp-prayers-request').'</div>';}
 							echo '<script>window.history.replaceState( null, null, window.location.href );</script>';$prayername="";$prayeremail="";$prayermessage="";
                         }
                     }
@@ -305,7 +308,7 @@ class upr_shortcode
                 $upr_prayer_show_country = get_option('upr_prayer_show_country');
 				$upr_prayer_share = get_option('upr_prayer_share');
 				$upr_prayer_req_email = get_option('upr_prayer_req_email');
-                $upr_prayer_hide_captcha = get_option('upr_prayer_hide_captcha');
+                $upr_prayer_hide_captcha = get_option('upr_prayer_hide_captcha');               
                 if(!isset($upr_prayer_hide_captcha) || $upr_prayer_hide_captcha =='' ) $upr_prayer_hide_captcha=0;
                 $current_url = get_permalink(get_the_ID());
                 if (isset($message)) {
@@ -325,13 +328,13 @@ class upr_shortcode
                                     'wp-prayers-request'); ?></label><span class="inline-star">*</span></div>
                         <div class="col-md-8"><input name="prayer_author_name" id="prayer_author_name"
                     class="form-control" type="text" value="<?php if (isset($prayername)) {echo htmlspecialchars($prayername);}?>"
-                            <p class="help-block" id="prayer_author_name_error"></p></div>
+                            <p class="help-block" id="prayer_author_name_error" maxlength="20"></p></div>
                     </div>
 				<?php if ($upr_prayer_req_email == 0): ?>	
                     <div class="form-group ">
                         <div class="col-md-3"><label for="prayer_author_email"><?php _e('Email',
                                     'wp-prayers-request'); ?></label><span class="inline-star">*</span></div>
-                        <div class="col-md-8"><input name="prayer_author_email" id="prayer_author_email"
+                        <div class="col-md-8"><input name="prayer_author_email" id="prayer_author_email" maxlength="30"
                         class="form-control" type="email" value="<?php if (isset($prayeremail)) {echo htmlspecialchars($prayeremail);}?>">
                             <p class="help-block" id="prayer_author_email_error"><?php _e('This field is required',
                                     'wp-prayers-request') ?></p></div>
@@ -627,7 +630,7 @@ class upr_shortcode
                         <div class="col-md-3"><label for="prayer_messages"><?php _e('Prayer Request',
                                     'wp-prayers-request') ?></label><span class="inline-star">*</span></div>
                         <div class="col-md-8"><textarea rows="5" name="prayer_messages" id="prayer_messages"
-                        class="form-control" ></textarea>
+                        class="form-control" maxlength="500"></textarea>
                             <p class="help-block" id="prayer_messages_error"><?php _e('This field is required',
                                     'wp-prayers-request') ?></p></div>
                     </div>
