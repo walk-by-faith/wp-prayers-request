@@ -3,7 +3,7 @@
 Plugin Name: WP Prayer II
 Plugin URI: https://www.goministry.com/
 Description: Prayer Management System
-Version: 2.4.3
+Version: 2.4.4
 Author: Go Prayer
 Author URI: https://www.goprayer.com/
 License: GPLv2 or later

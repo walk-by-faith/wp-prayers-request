@@ -127,13 +127,13 @@ class upr_shortcode
                     $message = "";$message1 = "";$message2 = "";
                     if (isset($_REQUEST['captcha_code'])) {
                         if ($_REQUEST['captcha_code'] != $_SESSION['captcha_code']) {
-                            $message = '<div class="col-md-11 alert-success" style="color:#F00">Please enter correct captcha value.</div>';
+                            $message = '<div class="col-md-11 alert-message" style="color:#F00">Please enter correct captcha value.</div>';
                         }
                     }
                         $num_found1= preg_match_all('/(((http|https|ftp|ftps)\:\/\/)|(www\.))[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3}(\:[0-9]+)?(\/\S*)?/', $_REQUEST['prayer_author_name'], $results, PREG_PATTERN_ORDER);
-						if (empty($_REQUEST['prayer_author_name']) || !empty($num_found1)|| strlen($_REQUEST['prayer_author_name'])>'20') {$message1 = '<div class="col-md-11 alert-success">'.__('This field is required','wp-prayers-request').': '.__('Name','wp-prayers-request').'</div>';}
+						if (empty($_REQUEST['prayer_author_name']) || !empty($num_found1)|| strlen($_REQUEST['prayer_author_name'])>'20') {$message1 = '<div class="col-md-11 alert-message">'.__('This field is required','wp-prayers-request').': '.__('Name','wp-prayers-request').'</div>';}
 						$num_found= preg_match_all('/(((http|https|ftp|ftps)\:\/\/)|(www\.))[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3}(\:[0-9]+)?(\/\S*)?/', $_REQUEST['prayer_messages'], $results, PREG_PATTERN_ORDER);
-						if (empty($_REQUEST['prayer_messages']) || !empty($num_found) ) {$message2 = '<div class="col-md-11 alert-success">'.__('This field is required','wp-prayers-request').': '.__('Prayer Request','wp-prayers-request').'</div>';}
+						if (empty($_REQUEST['prayer_messages']) || !empty($num_found) ) {$message2 = '<div class="col-md-11 alert-message">'.__('This field is required','wp-prayers-request').': '.__('Prayer Request','wp-prayers-request').'</div>';}
 	                    $message = $message1.$message2;
 						if (empty($message)) {
                         $post_status = 'publish';
@@ -308,7 +308,7 @@ class upr_shortcode
                 $upr_prayer_show_country = get_option('upr_prayer_show_country');
 				$upr_prayer_share = get_option('upr_prayer_share');
 				$upr_prayer_req_email = get_option('upr_prayer_req_email');
-                $upr_prayer_hide_captcha = get_option('upr_prayer_hide_captcha');               
+                $upr_prayer_hide_captcha = get_option('upr_prayer_hide_captcha');
                 if(!isset($upr_prayer_hide_captcha) || $upr_prayer_hide_captcha =='' ) $upr_prayer_hide_captcha=0;
                 $current_url = get_permalink(get_the_ID());
                 if (isset($message)) {
